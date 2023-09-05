@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Generate 404.html
-        run: cp dist/top_colleagues/index.html dist/top_colleagues/404.html
+        run: cp dist/top-colleagues/index.html dist/top-colleagues/404.html
       - name: Archive build
         if: success()
         uses: actions/upload-artifact@v1
