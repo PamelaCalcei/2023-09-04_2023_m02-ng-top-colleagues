@@ -1,0 +1,15 @@
+.colleague-box {
+    width: 200px; /* Définissez la largeur de votre carré */
+    height: 200px; /* Définissez la hauteur de votre carré */
+    border: 1px solid #ccc; /* Bordure optionnelle */
+    padding: 10px; /* Espacement interne optionnel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* styles.css ou styles.scss */
+.full-height {
+    height: 100vh;
+  }
+  

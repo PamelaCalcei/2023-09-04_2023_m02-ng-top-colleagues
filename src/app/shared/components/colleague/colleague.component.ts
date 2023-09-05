@@ -13,12 +13,5 @@ export class ColleagueComponent {
   @Output() liked = new EventEmitter<void>();
   @Output() disliked = new EventEmitter<void>();
 
-  like() {
-    this.liked.emit();
-  }
-
-  dislike() {
-    this.disliked.emit();
-  }
 }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { Colleague } from './models/colleague';
+import { Colleague } from './models/colleague';
 
 
 @Component({
@@ -9,10 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'top-colleagues';
-  // fakeColleague: Colleague = {
-  //   pseudo: 'John Doe',
-  //   score: 42,
-  //   photo: 'https://example.com/johndoe.jpg'
-  // };
-
+  fakeColleague: Colleague = {
+    pseudo: 'John Doe',
+    score: 42,
+    photo: 'https://example.com/johndoe.jpg'
+  };
 }
