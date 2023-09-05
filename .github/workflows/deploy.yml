@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - Calcei-Pamela
-  permissions:
-    contents: write
+permissions:
+  contents: write
 
 jobs:
   build:
