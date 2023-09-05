@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Colleague } from '../../../models/colleague';
+import { LikeHate } from '../../../models/like-hate'; 
+
 
 
 @Component({
@@ -10,8 +12,14 @@ import { Colleague } from '../../../models/colleague';
 
 export class ColleagueComponent {
   @Input() colleague!: Colleague;
-  @Output() liked = new EventEmitter<void>();
-  @Output() disliked = new EventEmitter<void>();
-
+  handleLikeHateClick(likeHate: LikeHate) {
+    if (likeHate === LikeHate.LIKE) {
+      this.colleague.score++;
+    } else if (likeHate === LikeHate.HATE) {
+      this.colleague.score--;
+    }
+  }
 }
+
+
 
