@@ -10,6 +10,8 @@
 <!-- Toolbar -->
 
 <app-like-hate></app-like-hate>
+<app-colleague [colleague]="fakeColleague" (liked)="onLiked()" (disliked)="onDisliked()"></app-colleague>
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

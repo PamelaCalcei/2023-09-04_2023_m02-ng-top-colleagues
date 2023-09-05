@@ -1,0 +1,7 @@
+<div class="colleague-card">
+    <img [src]="colleague.photo" alt="{{ colleague.pseudo }}'s photo">
+    <h3>{{ colleague.pseudo }}</h3>
+    <p>Score: {{ colleague.score }}</p>
+    <button (click)="like()">J'aime</button>
+    <button (click)="dislike()">Je déteste</button>
+  </div>
