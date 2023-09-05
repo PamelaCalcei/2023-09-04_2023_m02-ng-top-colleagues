@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { LikeHate } from '../../../models/like-hate';
 
 
@@ -10,13 +10,19 @@ import { LikeHate } from '../../../models/like-hate';
 })
 export class LikeHateComponent {
   @Output() likeHateClicked = new EventEmitter<LikeHate>();
+  @Input() disabledLike!: boolean;
+  @Input() disabledHate!: boolean;
 
   likeClicked() {
-    this.likeHateClicked.emit(LikeHate.LIKE);
+    if (!this.disabledLike) {
+      this.likeHateClicked.emit(LikeHate.LIKE);
+    }
   }
 
   hateClicked() {
-    this.likeHateClicked.emit(LikeHate.HATE);
+    if (!this.disabledHate) {
+      this.likeHateClicked.emit(LikeHate.HATE);
+    }
   }
 
 }

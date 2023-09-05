@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'top-colleagues';
   fakeColleague: Colleague = {
     pseudo: 'John Doe',
-    score: 42,
+    score: -999,
     photo: 'https://example.com/johndoe.jpg'
   };
 }

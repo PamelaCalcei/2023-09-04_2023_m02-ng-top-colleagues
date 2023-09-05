@@ -3,7 +3,6 @@
     <img [src]="colleague.photo" class="img-fluid" alt="Collague Image">
     <h5 class="mt-3">{{ colleague.pseudo }}</h5>
     <p>{{ colleague.score }}</p>
-    <app-like-hate (likeHateClicked)="handleLikeHateClick($event)"></app-like-hate>
-
+    <app-like-hate (likeHateClicked)="handleLikeHateClick($event)" [disabledLike]="colleague.score >= 1000" [disabledHate]="colleague.score <= -1000"></app-like-hate>
   </div>
 </div>
