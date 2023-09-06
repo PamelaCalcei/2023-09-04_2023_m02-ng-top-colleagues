@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output,  EventEmitter } from '@angular/core';
 import { Colleague } from '../../../models/colleague';
+  
 
 
 @Component({
