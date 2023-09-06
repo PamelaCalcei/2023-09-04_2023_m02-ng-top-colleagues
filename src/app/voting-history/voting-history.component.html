@@ -1,0 +1,11 @@
+
+<h2>Historique:</h2>
+<div *ngFor="let vote of votes">
+  <div class="vote-item">
+    <img [src]="vote.colleague.photo" class="colleague-photo" alt="Collègue Image">
+    <div class="vote-details">
+      <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote }}, elle a désormais uns core de  {{ vote.scoreAfterVote }} :)</p>
+    </div>
+    <button (click)="deleteVote(vote.id)">Supprimer</button>
+  </div>
+</div>
