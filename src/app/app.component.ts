@@ -11,22 +11,6 @@ import { LikeHate } from './models/like-hate';
 })
 export class AppComponent {
   title = 'top-colleagues';
-  colleaguesArray: Colleague[] = [
-    {
-      pseudo: 'John Doe',
-      score: -999,
-      photo: 'https://example.com/johndoe.jpg',
-    },
-    {
-      pseudo: 'Jane Smith',
-      score: 800,
-      photo: 'https://example.com/janesmith.jpg',
-    },
-    {
-      pseudo: 'Bob Johnson',
-      score: 1200,
-      photo: 'https://example.com/bobjohnson.jpg',
-    },
-  ];
+
 }
 

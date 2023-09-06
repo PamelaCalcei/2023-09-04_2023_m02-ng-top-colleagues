@@ -9,6 +9,21 @@ import { Colleague } from '../../../models/colleague';
   styleUrls: ['./colleague-list.component.scss']
 })
 export class ColleagueListComponent {
-  @Input() colleagues: Colleague[] = [];
-
+  colleaguesArray: Colleague[] = [
+    {
+      pseudo: 'John Doe',
+      score: -999,
+      photo: 'https://example.com/johndoe.jpg',
+    },
+    {
+      pseudo: 'Jane Smith',
+      score: 800,
+      photo: 'https://example.com/janesmith.jpg',
+    },
+    {
+      pseudo: 'Bob Johnson',
+      score: 1200,
+      photo: 'https://example.com/bobjohnson.jpg',
+    },
+  ];
 }

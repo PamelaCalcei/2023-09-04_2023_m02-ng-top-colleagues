@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Vote } from '../models/vote';
-import { Colleague } from '../models/colleague';
-import { LikeHate } from '../models/like-hate';
+import { Vote } from '../../../models/vote';
+import { Colleague } from '../../../models/colleague';
+import { LikeHate } from '../../../models/like-hate';
 
 @Component({
   selector: 'tc-voting-history',
