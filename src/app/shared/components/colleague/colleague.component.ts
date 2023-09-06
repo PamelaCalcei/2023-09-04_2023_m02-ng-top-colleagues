@@ -12,6 +12,7 @@ import { LikeHate } from '../../../models/like-hate';
 
 export class ColleagueComponent {
   @Input() colleague!: Colleague;
+
   handleLikeHateClick(likeHate: LikeHate) {
     if (likeHate === LikeHate.LIKE) {
       this.colleague.score++;
@@ -19,6 +20,7 @@ export class ColleagueComponent {
       this.colleague.score--;
     }
   }
+  
 }
 
 

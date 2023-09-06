@@ -1,0 +1,8 @@
+<div class="colleague-list">
+  <div *ngFor="let colleague of colleagues" class="colleague-box text-center">
+    <img [src]="colleague.photo" class="img-fluid" alt="Collague Image">
+    <h5 class="mt-3">{{ colleague.pseudo }}</h5>
+    <p>{{ colleague.score }}</p>
+ 
+  </div>
+</div>

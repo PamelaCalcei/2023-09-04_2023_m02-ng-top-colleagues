@@ -11,9 +11,18 @@ import { LikeHate } from './models/like-hate';
 })
 export class AppComponent {
   title = 'top-colleagues';
-  fakeColleague: Colleague = {
-    pseudo: 'John Doe',
-    score: -999,
-    photo: 'https://example.com/johndoe.jpg'
-  };
+  colleaguesArray: Colleague[] = [
+    {
+      pseudo: 'John Doe',
+      score: -999,
+      photo: 'https://example.com/johndoe.jpg'
+    },
+    {
+      pseudo: 'John Doe',
+      score: -999,
+      photo: 'https://example.com/johndoe.jpg'
+    },
+    // Ajoutez d'autres collègues ici
+  ];
 }
+
