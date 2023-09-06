@@ -22,7 +22,6 @@ export class AppComponent {
       score: -999,
       photo: 'https://example.com/johndoe.jpg'
     },
-    // Ajoutez d'autres collègues ici
   ];
 }
 
