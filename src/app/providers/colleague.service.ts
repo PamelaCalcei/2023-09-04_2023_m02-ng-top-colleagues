@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Colleague } from '../models/colleague'; 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -7,24 +9,8 @@ import { Colleague } from '../models/colleague';
 })
 export class ColleagueService {
 
-  constructor() { }
-  list(): Colleague[] {
-    return [
-      {
-        pseudo: 'John Doe',
-        score: -999,
-        photo: 'https://example.com/johndoe.jpg',
-      },
-      {
-        pseudo: 'Jane Smith',
-        score: 800,
-        photo: 'https://example.com/janesmith.jpg',
-      },
-      {
-        pseudo: 'Bob Johnson',
-        score: 1200,
-        photo: 'https://example.com/bobjohnson.jpg',
-      },
-    ];
-  }
+  constructor(private http: HttpClient) { }
+  list(): Observable<Colleague[]> {
+    return this.http.get<Colleague[]>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues');
+}
 }
