@@ -10,6 +10,7 @@ import { VoteService } from '../../../providers/vote.service';
 export class VotingHistoryComponent {
   votes: Vote[] = [
 ];
+
 constructor(private voteService: VoteService) {}
 
   ngOnInit() {

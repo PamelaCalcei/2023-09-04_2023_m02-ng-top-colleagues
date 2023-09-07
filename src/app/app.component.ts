@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { Colleague } from './models/colleague';
-import { LikeHate } from './models/like-hate'; 
-
-
 
 @Component({
   selector: 'tc-root',
@@ -11,6 +7,7 @@ import { LikeHate } from './models/like-hate';
 })
 export class AppComponent {
   title = 'top-colleagues';
+
 
 }
 
