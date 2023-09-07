@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Vote } from '../../../models/vote';
-import { Colleague } from '../../../models/colleague';
-import { LikeHate } from '../../../models/like-hate';
+import { VoteService } from '../../../providers/vote.service';
 
 @Component({
   selector: 'tc-voting-history',
@@ -10,28 +9,12 @@ import { LikeHate } from '../../../models/like-hate';
 })
 export class VotingHistoryComponent {
   votes: Vote[] = [
-    {
-      id: 1,
-      colleague: {
-        pseudo: 'John Doe',
-        score: -999,
-        photo: 'https://example.com/johndoe.jpg'
-      },
-      vote: LikeHate.LIKE,
-      scoreAfterVote: -998 
-    },
-    {
-      id: 2,
-      colleague: {
-        pseudo: 'Jane Smith',
-        score: 800,
-        photo: 'https://example.com/johndoe.jpg'
-      },
-      vote: LikeHate.HATE,
-      scoreAfterVote: 799
-    },
-  ];
+];
+constructor(private voteService: VoteService) {}
 
+  ngOnInit() {
+    this.votes = this.voteService.list();
+  }
   deleteVote(voteId: number) {
     this.votes = this.votes.filter(vote => vote.id !== voteId);
   }

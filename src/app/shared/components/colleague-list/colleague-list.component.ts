@@ -1,5 +1,7 @@
-import { Component, Input, Output,  EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { Colleague } from '../../../models/colleague';
+import { ColleagueService } from '../../../providers/colleague.service';
+
   
 
 
@@ -9,21 +11,10 @@ import { Colleague } from '../../../models/colleague';
   styleUrls: ['./colleague-list.component.scss']
 })
 export class ColleagueListComponent {
-  colleaguesArray: Colleague[] = [
-    {
-      pseudo: 'John Doe',
-      score: -999,
-      photo: 'https://example.com/johndoe.jpg',
-    },
-    {
-      pseudo: 'Jane Smith',
-      score: 800,
-      photo: 'https://example.com/janesmith.jpg',
-    },
-    {
-      pseudo: 'Bob Johnson',
-      score: 1200,
-      photo: 'https://example.com/bobjohnson.jpg',
-    },
-  ];
+  colleaguesArray: Colleague[] = [];
+  constructor(private colleagueService: ColleagueService) {}
+
+  ngOnInit() {
+    this.colleaguesArray = this.colleagueService.list();
+  }
 }
