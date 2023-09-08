@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Colleague } from '../../../models/colleague';
 import { LikeHate } from '../../../models/like-hate'; 
+import { VoteService } from 'src/app/providers/vote.service';
+import { Vote } from 'src/app/models/vote';
 
 
 
@@ -11,6 +13,8 @@ import { LikeHate } from '../../../models/like-hate';
 })
 
 export class ColleagueComponent {
+  constructor(private voteService: VoteService) {}
+
   @Input() colleague!: Colleague;
 
   handleLikeHateClick(likeHate: LikeHate) {
@@ -19,8 +23,10 @@ export class ColleagueComponent {
     } else if (likeHate === LikeHate.HATE) {
       this.colleague.score--;
     }
+    
+    // this.voteService.sendVote()
   }
-  
+
 }
 
 

@@ -11,15 +11,14 @@ import { ColleagueService } from '../../../providers/colleague.service';
   styleUrls: ['./colleague-list.component.scss']
 })
 export class ColleagueListComponent {
-  colleaguesArray: Colleague[] = []; // Déclarez la variable comme un tableau de Colleague
+  colleaguesArray: Colleague[] = []; 
 
   constructor(private colleagueService: ColleagueService) { }
 
   ngOnInit(): void {
-    // Dans ngOnInit, vous pouvez vous abonner à l'Observable pour obtenir les données
     this.colleagueService.list().subscribe(
       (data: Colleague[]) => {
-        this.colleaguesArray = data; // Mettez à jour la variable avec les données reçues
+        this.colleaguesArray = data;
       },
       (error) => {
         console.error('Une erreur s\'est produite :', error);

@@ -4,8 +4,8 @@
   <div class="vote-item">
     <img [src]="vote.colleague.photo" class="colleague-photo" alt="Collègue Image">
     <div class="vote-details">
-      <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote === 'LIKE' ? 'aimé' : 'détesté' }}, elle a désormais uns core de  {{ vote.scoreAfterVote }} :)</p>
+      <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote === 'LIKE' ? 'aimé' : 'détesté' }}, elle a désormais un score de  {{ vote.colleague.score }} :)</p>
     </div>
-    <button (click)="deleteVote(vote.id)">Supprimer</button>
+    <button >Supprimer</button>
   </div>
 </div>
