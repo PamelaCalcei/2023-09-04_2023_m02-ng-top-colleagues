@@ -1,24 +1,27 @@
-import { Component, OnDestroy } from '@angular/core';
-import {Subscription} from 'rxjs';
-import { VoteService } from 'src/app/providers/vote.service';
 import { LikeHate } from 'src/app/models/like-hate';
+import { Vote } from './../../../models/vote';
+import { VoteService } from './../../../providers/vote.service';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'tc-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss']
 })
-export class CounterComponent implements OnDestroy{
+export class CounterComponent implements OnDestroy {
   counterLike: number = 0;
   counterHate: number = 0;
   actionSub: Subscription;
 
   constructor(private voteService: VoteService) {
-    this.actionSub = this.voteService.getVoteObservable().subscribe(
-      (data: LikeHate) => {
-        if (data === LikeHate.LIKE) {
-          this.counterLike++;  
-
-        } else if (data === LikeHate.HATE) {
+    this.actionSub = this.voteService.actionObs.subscribe(
+      (data: Vote) => {
+        console.log('Received vote data:', data);
+        if (data.vote == LikeHate.LIKE) {
+          this.counterLike++;
+          console.log(this.counterLike)
+        } else if (data.vote == LikeHate.HATE) {
           this.counterHate++;
         }
       }

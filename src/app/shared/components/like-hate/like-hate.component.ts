@@ -19,6 +19,8 @@ export class LikeHateComponent {
     if (!this.disabledLike) {
       this.likeHateClicked.emit(LikeHate.LIKE);
       this.addvote.emit(LikeHate.LIKE);
+      console.log('Hate clicked and emitted');
+
     }
   }
 

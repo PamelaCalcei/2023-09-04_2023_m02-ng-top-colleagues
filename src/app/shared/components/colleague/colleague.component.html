@@ -5,8 +5,8 @@
       <p>{{ colleague.score | score }}</p>
 
       <app-like-hate (likeHateClicked)="handleLikeHateClick($event)" [disabledLike]="colleague.score >= 1000"
-        [disabledHate]="colleague.score <= -1000">
-        (addvote)="addVote($event)"
+        [disabledHate]="colleague.score <= -1000"  (addvote)="addVote($event)"
+        >
 
       </app-like-hate>
     </div>

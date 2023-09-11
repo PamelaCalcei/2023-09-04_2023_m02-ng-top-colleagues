@@ -12,7 +12,9 @@ import { Colleague } from '../models/colleague';
 })
 export class VoteService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+  }
   private apiUrl = 'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes';
   private voteSubject = new Subject<LikeHate>();
   private votes: Vote[] = [];
@@ -22,6 +24,8 @@ export class VoteService {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
+
+    
 
     this.http.post<Vote>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes',
       {
@@ -37,9 +41,13 @@ export class VoteService {
   }
 
   getVoteObservable(): Observable<LikeHate> {
+    
     return this.voteSubject.asObservable();
   }
 
+  get actionObs(){
+    return this.action.asObservable();
+  }
 
   getVotes(): Observable<Vote[]> {
     return this.http.get<Vote[]>(this.apiUrl);
