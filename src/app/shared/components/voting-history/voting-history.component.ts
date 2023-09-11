@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Vote } from '../../../models/vote';
 import { VoteService } from '../../../providers/vote.service';
-import { LikeHate } from 'src/app/models/like-hate';
 
 @Component({
   selector: 'tc-voting-history',

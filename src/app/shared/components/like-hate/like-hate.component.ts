@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { LikeHate } from '../../../models/like-hate';
-import { VoteService } from 'src/app/providers/vote.service';
-import { Vote } from 'src/app/models/vote';
 
 @Component({
   selector: 'app-like-hate',
@@ -10,28 +8,24 @@ import { Vote } from 'src/app/models/vote';
 
 })
 export class LikeHateComponent {
-  constructor(private voteService: VoteService) { }
   @Output() likeHateClicked = new EventEmitter<LikeHate>();
+  @Output() addvote: EventEmitter<LikeHate> = new EventEmitter<LikeHate>(); 
   @Input() disabledLike!: boolean;
   @Input() disabledHate!: boolean;
-  @Input() vote!: Vote;
 
 
 
   likeClicked() {
     if (!this.disabledLike) {
       this.likeHateClicked.emit(LikeHate.LIKE);
-      // this.voteService.sendVote(LikeHate.LIKE);
-      
-
+      this.addvote.emit(LikeHate.LIKE);
     }
   }
 
   hateClicked() {
     if (!this.disabledHate) {
       this.likeHateClicked.emit(LikeHate.HATE);
-      // this.voteService.sendVote(LikeHate.HATE);
-
+      this.addvote.emit(LikeHate.HATE);
     }
   }
 

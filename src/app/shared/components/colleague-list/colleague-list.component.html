@@ -1,13 +1,7 @@
-<h2>Collègues:</h2>
-<div class="colleague-list row">
-
-<div class="col-md-4" *ngFor="let colleague of colleaguesArray">
-  <div class="colleague-box text-center">
-    <img [src]="colleague.photo" class="img-fluid" alt="Collague Image">
-    <h5 class="mt-3">{{ colleague.pseudo | uppercase }}</h5>
-    <p>{{ colleague.score | score }}</p>
-    <tc-colleague [colleague]="colleague"></tc-colleague>
-  </div>
+<div class="row">
+    <ng-container *ngFor="let colleague of colleaguesArray">
+        <div class="col-md-4">
+            <tc-colleague [colleague]="colleague"></tc-colleague>
+        </div>
+    </ng-container>
 </div>
-</div>
-
