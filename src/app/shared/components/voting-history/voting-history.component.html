@@ -3,7 +3,7 @@
     <div class="vote-item" *ngIf="vote.colleague">
       <img [src]="vote.colleague.photo" alt="Colleague Image">
       <div class="vote-details">
-        <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote === 0 ? 'detesté' : 'aimé' }}, elle a désormais un score de {{ vote.colleague.score }} :</p>
+        <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote === 0 ? 'aimé' : 'detesté' }}, elle a désormais un score de {{ vote.colleague.score }} :</p>
       </div>
     </div>
   </div>

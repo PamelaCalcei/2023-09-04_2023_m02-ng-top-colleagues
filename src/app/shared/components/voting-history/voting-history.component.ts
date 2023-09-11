@@ -22,7 +22,6 @@ export class VotingHistoryComponent {
   loadVotes() {
     this.voteService.getVotes().subscribe((votes) => {
       this.votes = votes;
-      console.log(votes)
     });
     this.voteService.actionObs.subscribe((updatedVote) => {
       this.votes.unshift(updatedVote);
