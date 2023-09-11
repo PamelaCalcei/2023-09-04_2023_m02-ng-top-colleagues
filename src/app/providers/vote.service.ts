@@ -19,6 +19,7 @@ export class VoteService {
   private voteSubject = new Subject<LikeHate>();
   private votes: Vote[] = [];
   private action = new Subject<Vote>();
+  private voteHistorySubject = new Subject<Vote[]>();
 
   sendVote(vote: Vote) {
     const httpOptions = {
@@ -30,15 +31,18 @@ export class VoteService {
     this.http.post<Vote>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes',
       {
         pseudo: vote.colleague.pseudo,
-        like_hate: vote.vote.toString()
+        like_hate: vote.vote.toString(),
       },
       httpOptions
     )
+    
     .subscribe(newVote => {
+      console.log(newVote)
       this.votes.unshift(newVote);
       this.action.next(newVote);
     })
   }
+
 
   getVoteObservable(): Observable<LikeHate> {
     

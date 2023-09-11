@@ -24,13 +24,13 @@ export class ColleagueComponent {
   }
 
   addVote(vote:LikeHate){
-    console.log(' vote:', vote);
     if(this.colleague){
       const newVote = {
         colleague: this.colleague,
         vote: vote
       }
       this.voteService.sendVote(newVote);
+      
     }
   }
 

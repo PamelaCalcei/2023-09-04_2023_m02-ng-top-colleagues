@@ -15,6 +15,13 @@ export class VotingHistoryComponent {
 
   ngOnInit() {
     this.loadVotes();
+    this.reloadVotes()
+  }
+
+  reloadVotes() {
+    this.voteService.actionObs.subscribe((updatedVote) => {
+         this.votes.unshift(updatedVote);
+      });
   }
 
   loadVotes() {
@@ -24,8 +31,17 @@ export class VotingHistoryComponent {
   }
 
   deleteVote(voteId: number) {
+    
   }
 
  
   
 }
+
+
+  // loadVotes() {
+  //   this.voteService.actionObs.subscribe((updatedVote) => {
+  //     this.votes.unshift(updatedVote);
+  //   });
+  // }
+
