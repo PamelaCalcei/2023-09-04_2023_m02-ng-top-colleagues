@@ -1,9 +1,9 @@
-<h2>Historique:</h2>
-<div *ngFor="let vote of votes">
-  <div class="vote-item" *ngIf="vote.colleague">
-    <img [src]="vote.colleague.photo" alt="Colleague Image">
-    <div class="vote-details">
-      <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote }}, elle a désormais un score de {{ vote.colleague.score }} :</p>
+  <h2>Historique:</h2>
+  <div *ngFor="let vote of votes">
+    <div class="vote-item" *ngIf="vote.colleague">
+      <img [src]="vote.colleague.photo" alt="Colleague Image">
+      <div class="vote-details">
+        <p class="colleague-name">{{ vote.colleague.pseudo }} est {{ vote.vote === 0 ? 'detesté' : 'aimé' }}, elle a désormais un score de {{ vote.colleague.score }} :</p>
+      </div>
     </div>
   </div>
-</div>

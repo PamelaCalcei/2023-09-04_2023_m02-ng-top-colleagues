@@ -19,27 +19,23 @@ export class VoteService {
   private voteSubject = new Subject<LikeHate>();
   private votes: Vote[] = [];
   private action = new Subject<Vote>();
-  private voteHistorySubject = new Subject<Vote[]>();
 
   sendVote(vote: Vote) {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-
-    
-
-    this.http.post<Vote>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes',
+    this.http.post<Colleague>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/votes',
       {
         pseudo: vote.colleague.pseudo,
         like_hate: vote.vote.toString(),
       },
       httpOptions
     )
-    
-    .subscribe(newVote => {
-      console.log(newVote)
-      this.votes.unshift(newVote);
-      this.action.next(newVote);
+    .subscribe(coll => {
+      vote.colleague.score = coll.score
+      console.log(vote)
+      this.votes.unshift(vote);
+      this.action.next(vote);
     })
   }
 

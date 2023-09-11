@@ -14,34 +14,21 @@ export class VotingHistoryComponent {
   constructor(private voteService: VoteService) {}
 
   ngOnInit() {
-    this.loadVotes();
-    this.reloadVotes()
+    this.loadVotes()
   }
 
-  reloadVotes() {
-    this.voteService.actionObs.subscribe((updatedVote) => {
-         this.votes.unshift(updatedVote);
-      });
-  }
-
+   
+  
   loadVotes() {
     this.voteService.getVotes().subscribe((votes) => {
       this.votes = votes;
+      console.log(votes)
+    });
+    this.voteService.actionObs.subscribe((updatedVote) => {
+      this.votes.unshift(updatedVote);
     });
   }
 
   deleteVote(voteId: number) {
     
-  }
-
- 
-  
-}
-
-
-  // loadVotes() {
-  //   this.voteService.actionObs.subscribe((updatedVote) => {
-  //     this.votes.unshift(updatedVote);
-  //   });
-  // }
-
+  }}
