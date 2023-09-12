@@ -1,0 +1,67 @@
+<form (ngSubmit)="submit()" #monForm="ngForm">
+  <div class="form-group row">
+    <label for="pseudo" class="col-4 col-form-label">Pseudo</label>
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input [(ngModel)]="model.pseudo"  name="pseudo" type="text"
+          class="form-control" #pseudo="ngModel" required (blur)="model.pseudoValid = !pseudo.invalid">
+      </div>
+      <p *ngIf="pseudo.dirty && pseudo.invalid && pseudo.value != ''">
+        Le pseudo est invalide.
+      </p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="nom" class="col-4 col-form-label">Nom</label>
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input [(ngModel)]="model.nom"  #nom="ngModel" id="nom" name="nom"
+          type="text" class="form-control" required minlength="2">
+
+      </div>
+      <p *ngIf="nom.dirty && nom.invalid && nom.value != ''">
+        Le nom est invalide
+      </p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="prenom" class="col-4 col-form-label">Prenom</label>
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input [(ngModel)]="model.prenom"  #prenom="ngModel" id="prenom"
+          name="prenom" type="text" class="form-control" required>
+      </div>
+      <p *ngIf="prenom.dirty && prenom.invalid && prenom.value != ''" >
+        Le prenom est invalide
+      </p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="photo" class="col-4 col-form-label">Photo</label>
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input [(ngModel)]="model.urlphoto"  #urlphoto="ngModel" id="photo"
+          name="photo" type="text" class="form-control" required>
+      </div>
+      <p *ngIf="urlphoto.dirty && urlphoto.invalid && urlphoto.value != ''">
+        La photo est invalide
+      </p>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="offset-4 col-8">
+      <button name="submit" type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+    <p *ngIf="monForm.invalid && (monForm.dirty || monForm.touched)">
+      Au moins un champ du formulaire est invalide.
+    </p>
+  </div>
+</form>
