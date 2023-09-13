@@ -1,27 +1,26 @@
-<form class="form" (ngSubmit)="submit()" #monForm="ngForm">
+<form class="form" (ngSubmit)="submit()" #monForm="ngForm" tcFirstLastValidator>
   <h2>Ajouter un collègue</h2>
-  <label for="pseudo" >Pseudo</label>
+  <label for="pseudo">Pseudo</label>
   <input [(ngModel)]="model.pseudo" name="pseudo" type="text" #pseudo="ngModel" required
     (blur)="model.pseudoValid = !pseudo.invalid">
-
   <p *ngIf="pseudo.touched && pseudo.invalid">
     <ng-container>
       Le pseudo est requis.
     </ng-container>
   </p>
   <label for="nom">Nom</label>
-  <input [(ngModel)]="model.nom" #nom="ngModel" id="nom" name="nom" type="text"  required
-    (blur)="model.nomValid = !nom.invalid" minlength="2">
+  <input [(ngModel)]="model.nom" #nom="ngModel" id="nom" name="nom" type="text" required
+    (blur)="model.nomValid = !nom.invalid"  minlength="2">
   <p *ngIf="nom.touched && nom.invalid">
     <ng-container>
       Le nom est requis.
     </ng-container>
-    <ng-container *ngIf="nom.errors?.['minlength']">
-      Le nom doit avoir au moins 2 caractères.
-    </ng-container>
-  </p>
-  <label for="prenom" >Prenom</label>
-  <input [(ngModel)]="model.prenom" #prenom="ngModel" id="prenom" name="prenom" type="text" 
+  <ng-container *ngIf="nom.errors?.['minlength']">
+    Le nom doit avoir au moins 2 caractères.
+  </ng-container>
+</p>
+  <label for="prenom">Prenom</label>
+  <input [(ngModel)]="model.prenom" #prenom="ngModel" id="prenom" name="prenom" type="text"
     (blur)="model.prenomValid = !prenom.invalid" minlength="2" required>
   <p *ngIf="prenom.touched && prenom.invalid">
     <ng-container>
@@ -33,17 +32,10 @@
   </p>
 
   <label for="photo">Photo</label>
-  <input [(ngModel)]="model.urlphoto" #urlphoto="ngModel" id="photo" name="photo" type="text" 
-    required>
+  <input [(ngModel)]="model.urlphoto" #urlphoto="ngModel" id="photo" name="photo" type="text" required>
   <p *ngIf="urlphoto.touched && urlphoto.invalid">
     La photo ne peut pas être vide
   </p>
-
   <button name="submit" type="submit" [disabled]="monForm.invalid">Ajouter</button>
-
-  <p *ngIf="monForm.invalid && (monForm.dirty || monForm.touched)">
-    Au moins un champ du formulaire est invalide.
-  </p>
- 
+  <p *ngIf="monForm.errors && (nom.dirty || prenom.dirty) && (nom.value != '' && prenom.value != '')">{{monForm.errors['firstLast']}}</p>
 </form>
-

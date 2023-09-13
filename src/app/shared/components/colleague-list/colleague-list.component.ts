@@ -16,13 +16,12 @@ export class ColleagueListComponent {
   constructor(private colleagueService: ColleagueService) { }
 
   ngOnInit(): void {
-    this.colleagueService.list().subscribe(
-      (data: Colleague[]) => {
-        this.colleaguesArray = data;
-      },
-      (error) => {
-        console.error('Une erreur s\'est produite :', error);
-      }
-    );
+    this.colleagueService.getColleagues().subscribe((colleaguesArray) =>{
+      this.colleaguesArray = colleaguesArray;
+    });
+    this.colleagueService.actionObs.subscribe((updatedColleague)=>{
+      this.colleaguesArray.unshift(updatedColleague)
+    })
+
   }
 }
