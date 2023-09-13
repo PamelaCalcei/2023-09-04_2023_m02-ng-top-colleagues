@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ColleagueService } from 'src/app/providers/colleague.service';
 
 class ModelFormCollegue{
@@ -28,7 +28,6 @@ export class CreateColleagueFormsComponent {
 
   submit(){
     if(this.model.pseudo && this.model.nom && this.model.prenom && this.model.urlphoto){
-      console.log("données envoyées : " + this.model.pseudo,this.model.urlphoto, this.model.nom,  this.model.prenom)
       this.colleagueService.postColleague(
         {
           pseudo: this.model.pseudo,
@@ -43,26 +42,26 @@ export class CreateColleagueFormsComponent {
 
   }
 
-  checkIfPseudoExists(pseudo:string|undefined){
-    if(pseudo){
-      if(this.colleagueService.getColleagueByPseudo(pseudo)){
-        return true;
-      }
-    }
-    return false;
-  }
+  // checkIfPseudoExists(pseudo:string|undefined){
+  //   if(pseudo){
+  //     if(this.colleagueService.getColleagueByPseudo(pseudo)){
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
-  urlIsValid(url:string|undefined){
-    if(url){
-      return url.includes("http://") || url.includes("https://");
-    }
-    return false;
-  }
+
 
   resetModel(){
     this.model.pseudo = '';
     this.model.nom = '';
     this.model.prenom = '';
     this.model.urlphoto = '';
+
+    this.model.pseudoValid = false;
+  this.model.nomValid = false;
+  this.model.prenomValid = false;
+  this.model.urlphotoValid = false;
   }
 }
