@@ -1,8 +1,9 @@
 <form class="form" (ngSubmit)="submit()" #monForm="ngForm" tcFirstLastValidator>
   <h2>Ajouter un collègue</h2>
   <label for="pseudo">Pseudo</label>
-  <input [(ngModel)]="model.pseudo" name="pseudo" type="text" #pseudo="ngModel" required
+  <input tcPseudoValidator [(ngModel)]="model.pseudo" name="pseudo" type="text" #pseudo="ngModel" required
     (blur)="model.pseudoValid = !pseudo.invalid">
+  <p *ngIf="pseudo.dirty && pseudo.errors && pseudo.value != ''">{{pseudo.errors['pseudoMessage']}}</p>
   <p *ngIf="pseudo.touched && pseudo.invalid">
     <ng-container>
       Le pseudo est requis.
@@ -10,15 +11,15 @@
   </p>
   <label for="nom">Nom</label>
   <input [(ngModel)]="model.nom" #nom="ngModel" id="nom" name="nom" type="text" required
-    (blur)="model.nomValid = !nom.invalid"  minlength="2">
+    (blur)="model.nomValid = !nom.invalid" minlength="2">
   <p *ngIf="nom.touched && nom.invalid">
     <ng-container>
       Le nom est requis.
     </ng-container>
-  <ng-container *ngIf="nom.errors?.['minlength']">
-    Le nom doit avoir au moins 2 caractères.
-  </ng-container>
-</p>
+    <ng-container *ngIf="nom.errors?.['minlength']">
+      Le nom doit avoir au moins 2 caractères.
+    </ng-container>
+  </p>
   <label for="prenom">Prenom</label>
   <input [(ngModel)]="model.prenom" #prenom="ngModel" id="prenom" name="prenom" type="text"
     (blur)="model.prenomValid = !prenom.invalid" minlength="2" required>
@@ -37,5 +38,6 @@
     La photo ne peut pas être vide
   </p>
   <button name="submit" type="submit" [disabled]="monForm.invalid">Ajouter</button>
-  <p *ngIf="monForm.errors && (nom.dirty || prenom.dirty) && (nom.value != '' && prenom.value != '')">{{monForm.errors['firstLast']}}</p>
+  <p *ngIf="monForm.errors && (nom.dirty || prenom.dirty) && (nom.value != '' && prenom.value != '')">
+    {{monForm.errors['firstLast']}}</p>
 </form>

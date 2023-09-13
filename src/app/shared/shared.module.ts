@@ -10,6 +10,7 @@ import { CreateColleagueFormsComponent } from './components/create-colleague-for
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 import { FirstLastValidatorDirective } from './validators/first-last-validator.directive';
+import { PseudoValidatorDirective } from './validators/pseudo-validator.directive';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FirstLastValidatorDirective } from './validators/first-last-validator.d
     CounterComponent,
     CreateColleagueFormsComponent,
     FirstLastValidatorDirective,
+    PseudoValidatorDirective,
 
   ],
   imports: [
