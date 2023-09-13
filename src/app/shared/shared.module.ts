@@ -9,6 +9,7 @@ import { CounterComponent } from '../shared/components/counter/counter.component
 import { CreateColleagueFormsComponent } from './components/create-colleague-forms/create-colleague-forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
+import { FirstLastValidatorDirective } from './validators/first-last-validator.directive';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FormsModule }   from '@angular/forms';
     VotingHistoryComponent,
     CounterComponent,
     CreateColleagueFormsComponent,
+    FirstLastValidatorDirective,
 
   ],
   imports: [
