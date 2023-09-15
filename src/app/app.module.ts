@@ -7,6 +7,8 @@
   import { CreateColleagueModule } from './pages/create-colleague/create-colleague.module';
   import { FormsModule } from '@angular/forms';
   import { ReactiveFormsModule } from '@angular/forms';
+  import { CreateColleagueReactiveModule } from './pages/create-colleague-reactive/create-colleague-reactive.module';
+import { CreateColleagueReactivePages } from './pages/create-colleague-reactive/create-colleague-reactive.pages';
 
 
 
@@ -23,6 +25,7 @@
       CreateColleagueModule,
       FormsModule,
       ReactiveFormsModule,
+      CreateColleagueReactiveModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

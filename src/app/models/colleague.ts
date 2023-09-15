@@ -1,6 +1,7 @@
 export interface Colleague {
-    pseudo: string;
-    score: number;
-    photo: string;
-
+    pseudo:string;
+    last:string;
+    first:string;
+    photo:string;
+    score:number;
 }

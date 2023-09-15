@@ -26,32 +26,19 @@ export class CreateColleagueFormsComponent {
 
   model = new ModelFormCollegue();
 
-  submit(){
-    if(this.model.pseudo && this.model.nom && this.model.prenom && this.model.urlphoto){
-      this.colleagueService.postColleague(
-        {
-          pseudo: this.model.pseudo,
-          photo: this.model.urlphoto,
-          score: 0
-        },
-        this.model.nom,
-        this.model.prenom
-      )
+  submit() {
+    if (this.model.pseudo && this.model.nom && this.model.prenom && this.model.urlphoto) {
+      this.colleagueService.postColleague({
+        pseudo: this.model.pseudo,
+        last: this.model.nom,
+        first: this.model.prenom,
+        photo: this.model.urlphoto,
+        score: 0
+      });
+
+      this.resetModel();
     }
-    this.resetModel();
-
   }
-
-  // checkIfPseudoExists(pseudo:string|undefined){
-  //   if(pseudo){
-  //     if(this.colleagueService.getColleagueByPseudo(pseudo)){
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-
-
 
   resetModel(){
     this.model.pseudo = '';

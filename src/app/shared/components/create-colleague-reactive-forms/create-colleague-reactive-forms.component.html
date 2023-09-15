@@ -1,0 +1,32 @@
+<form class="form" (ngSubmit)="submit()" [formGroup]="formColleagues">
+    <h2>Ajouter un collègue</h2>
+    <p
+        *ngIf="formColleagues.hasError('firstLast') && (formColleagues.get('nom')?.value && formColleagues.get('prenom')?.value)">
+        Le nom et prénom doivent être différents</p>
+    <label for="pseudo">Pseudo</label>
+    <input tcPseudoValidator formControlName="pseudo" [(ngModel)]="model.pseudo" name="pseudo" type="text">
+    <p *ngIf="formColleagues.get('pseudo')?.hasError('pseudoMessage')">Pseudo déjà utilisé</p>
+    <p *ngIf="formColleagues.get('pseudo')?.hasError('required') && formColleagues.get('pseudo')?.touched">
+       Le Pseudo est requis.</p>
+    <label for="nom">Nom</label>
+    <input [(ngModel)]="model.nom" formControlName="nom" [ngClass]="" name="nom" type="text">
+    <p *ngIf="formColleagues.get('nom')?.hasError('minlength') ">Nom invalide.</p>
+    <p *ngIf="formColleagues.get('nom')?.hasError('required') && formColleagues.get('nom')?.touched">
+       Le Nom est requis.</p>
+    <label for="prenom">Prenom</label>
+    <input [(ngModel)]="model.prenom" formControlName="prenom" [ngClass]="" name="prenom" type="text">
+    <p
+        *ngIf="formColleagues.get('prenom')?.hasError('minlength') && formColleagues.get('prenom')?.dirty && formColleagues.get('prenom')?.value != ''">
+        Prénom invalide.</p>
+        <p *ngIf="formColleagues.get('prenom')?.hasError('required') && formColleagues.get('prenom')?.touched">
+            Le prénom est requis.</p>
+    <label for="photo">Photo</label>
+    <input [(ngModel)]="model.urlphoto" formControlName="url" [ngClass]="" name="urlphoto" type="text">
+    <p
+        *ngIf="formColleagues.get('url')?.hasError('urlError') && formColleagues.get('url')?.dirty && formColleagues.get('url')?.value != ''">
+        URL invalide.</p>
+        <p *ngIf="formColleagues.get('url')?.hasError('required') && formColleagues.get('url')?.touched">
+            L'url est requise.</p>
+    <button type="submit"
+        [disabled]="formColleagues.invalid || formColleagues.hasError('firstLast') || formColleagues.hasError('pseudoMessage') || !urlIsValid(formColleagues.get('url')?.value)">Ajouter</button>
+</form>

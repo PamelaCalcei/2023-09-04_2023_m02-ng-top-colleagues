@@ -29,23 +29,25 @@ getColleagueByPseudo(pseudo:string){
 get actionObs(){
   return this.action.asObservable();
 }
-postColleague(colleague:Colleague, last:string, first:string){
+postColleague(colleague: Colleague) {
   const httpOptions = {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
   };
-  this.http.post<Colleague>('https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues',
-        {
-          pseudo: colleague.pseudo,
-          last: last,
-          first: first,
-          photo: colleague.photo,
-          score: colleague.score
-        },
-        httpOptions
-      )
-      .subscribe(newColleague => {
-        this.colleague.unshift(newColleague);
-        this.action.next(newColleague);
-      })
+  this.http
+    .post<Colleague>(
+      'https://app-6f6e9c23-7f63-4d86-975b-a0b1a1440f94.cleverapps.io/api/v2/colleagues',
+      {
+        pseudo: colleague.pseudo,
+        last: colleague.last, // Utilisez les propriétés de colleague
+        first: colleague.first, // Utilisez les propriétés de colleague
+        photo: colleague.photo,
+        score: colleague.score
+      },
+      httpOptions
+    )
+    .subscribe(newColleague => {
+      this.colleague.unshift(newColleague);
+      this.action.next(newColleague);
+    });
 }
 }

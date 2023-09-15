@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule
   ],
   exports: [
     CreateColleaguePage, 

@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 import { FirstLastValidatorDirective } from './validators/first-last-validator.directive';
 import { PseudoValidatorDirective } from './validators/pseudo-validator.directive';
+import { CreateColleagueReactiveFormsComponent } from './components/create-colleague-reactive-forms/create-colleague-reactive-forms.component';
 
 
 @NgModule({
@@ -24,14 +25,14 @@ import { PseudoValidatorDirective } from './validators/pseudo-validator.directiv
     CreateColleagueFormsComponent,
     FirstLastValidatorDirective,
     PseudoValidatorDirective,
-
+    CreateColleagueReactiveFormsComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
   ],
-  exports: [ColleagueComponent, LikeHateComponent, ColleagueListComponent, ScorePipe, VotingHistoryComponent, CounterComponent, CreateColleagueFormsComponent]
+  exports: [ColleagueComponent, LikeHateComponent, ColleagueListComponent, ScorePipe, VotingHistoryComponent, CounterComponent, CreateColleagueFormsComponent, CreateColleagueReactiveFormsComponent]
 
 })
 export class SharedModule { }
